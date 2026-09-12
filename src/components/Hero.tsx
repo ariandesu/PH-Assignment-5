@@ -28,7 +28,7 @@ export default function Hero() {
 
         <div className="hero-image">
           <img
-            src="/src/assets/banner-stack.png"
+            src="src/assets/banner-stack.png"
             alt="Development stack illustration"
           />
         </div>
