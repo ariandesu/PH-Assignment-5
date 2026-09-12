@@ -237,3 +237,54 @@ button {
   height: auto;
   object-fit: contain;
 }
+
+/* =========================
+   TECHNOLOGIES SECTION
+========================= */
+
+.technologies-section {
+  padding: 70px 0;
+  background: #ffffff;
+}
+
+.technologies-container {
+  width: min(100% - 48px, var(--container-width));
+  margin: 0 auto;
+}
+
+.section-heading {
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #111827;
+}
+
+.section-heading h2 span {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-heading p {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.technology-preview {
+  min-height: 120px;
+  border: 1px dashed #dbe3ec;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #64748b;
+  font-size: 14px;
+}
