@@ -1,4 +1,5 @@
 import bannerStack from "../assets/banner-stack.png";
+
 export default function Hero() {
   return (
     <section className="hero">
@@ -11,17 +12,23 @@ export default function Hero() {
           </h1>
 
           <p>
-            Explore frontend, backend, database, and tooling options, compare
-            them side by side, and put together the stack that fits your next
-            project.
+            Explore frontend, backend, database, and tooling
+            options, compare them side by side, and put together
+            the stack that fits your next project.
           </p>
 
           <div className="hero-buttons">
-            <a href="#technologies" className="primary-btn">
+            <a
+              href="#technologies"
+              className="primary-btn"
+            >
               Explore Technologies
             </a>
 
-            <a href="#about" className="secondary-btn">
+            <a
+              href="#about"
+              className="secondary-btn"
+            >
               Learn More
             </a>
           </div>
@@ -37,4 +44,3 @@ export default function Hero() {
     </section>
   );
 }
-

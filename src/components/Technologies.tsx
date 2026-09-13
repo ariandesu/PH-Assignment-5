@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+
 import type { Technology } from "../types";
+
 import TechnologyCard from "./TechnologyCard";
 import StackPanel from "./StackPanel";
 
@@ -16,26 +18,39 @@ export default function Technologies({
   onRemove,
   onRemoveAll,
 }: TechnologiesProps) {
-  const [technologies, setTechnologies] = useState<Technology[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [technologies, setTechnologies] =
+    useState<Technology[]>([]);
+
+  const [loading, setLoading] =
+    useState(true);
 
   useEffect(() => {
     const loadTechnologies = async () => {
       try {
-        const response = await fetch("/technologies.json");
+        const response = await fetch(
+          "/technologies.json"
+        );
 
         if (!response.ok) {
-          throw new Error("Failed to load technologies");
+          throw new Error(
+            "Failed to load technologies"
+          );
         }
 
-        const data: Technology[] = await response.json();
+        const data: Technology[] =
+          await response.json();
 
         setTechnologies(data);
 
-        // Keep the loading animation visible briefly
-        await new Promise((resolve) => setTimeout(resolve, 800));
+        // Make loading state visible
+        await new Promise((resolve) =>
+          setTimeout(resolve, 800)
+        );
       } catch (error) {
-        console.error("Error loading technologies:", error);
+        console.error(
+          "Error loading technologies:",
+          error
+        );
       } finally {
         setLoading(false);
       }
@@ -45,36 +60,48 @@ export default function Technologies({
   }, []);
 
   return (
-    <section id="technologies" className="technologies-section">
+    <section
+      id="technologies"
+      className="technologies-section"
+    >
       <div className="technologies-container">
         <div className="section-heading">
           <h2>
-            Explore the <span>Technologies</span>
+            Explore the{" "}
+            <span>Technologies</span>
           </h2>
 
           <p>
-            Pick one technology per category to build your ideal stack.
+            Pick one technology per category to
+            build your ideal stack.
           </p>
         </div>
 
         {loading ? (
           <div className="loading-container">
             <div className="loading-spinner"></div>
-            <p>Loading technologies...</p>
+
+            <p>
+              Loading technologies...
+            </p>
           </div>
         ) : (
           <div className="technology-layout">
             <div className="technology-grid">
-              {technologies.map((technology) => (
-                <TechnologyCard
-                  key={technology.id}
-                  technology={technology}
-                  added={stack.some(
-                    (item) => item.id === technology.id
-                  )}
-                  onAdd={onAdd}
-                />
-              ))}
+              {technologies.map(
+                (technology) => (
+                  <TechnologyCard
+                    key={technology.id}
+                    technology={technology}
+                    added={stack.some(
+                      (item) =>
+                        item.id ===
+                        technology.id
+                    )}
+                    onAdd={onAdd}
+                  />
+                )
+              )}
             </div>
 
             <StackPanel

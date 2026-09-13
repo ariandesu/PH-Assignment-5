@@ -49,8 +49,13 @@ export default function Header() {
         </nav>
 
         <div className="nav-actions">
-          <button className="sign-in">Sign In</button>
-          <button className="sign-up">Sign Up</button>
+          <button className="sign-in">
+            Sign In
+          </button>
+
+          <button className="sign-up">
+            Sign Up
+          </button>
         </div>
       </div>
     </header>

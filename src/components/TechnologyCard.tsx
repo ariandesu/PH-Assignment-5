@@ -39,11 +39,15 @@ export default function TechnologyCard({
       </div>
 
       <button
-        className={`add-stack-button ${added ? "added" : ""}`}
+        className={`add-stack-button ${
+          added ? "added" : ""
+        }`}
         disabled={added}
         onClick={() => onAdd(technology)}
       >
-        {added ? "✓ Added to Stack" : "Add to Stack"}
+        {added
+          ? "✓ Added to Stack"
+          : "Add to Stack"}
       </button>
     </article>
   );
