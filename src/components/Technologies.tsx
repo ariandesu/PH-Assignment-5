@@ -32,11 +32,11 @@ export default function Technologies({
 
         setTechnologies(data);
 
-        setTimeout(() => {
-          setLoading(false);
-        }, 400);
+        // Keep the loading animation visible briefly
+        await new Promise((resolve) => setTimeout(resolve, 800));
       } catch (error) {
         console.error("Error loading technologies:", error);
+      } finally {
         setLoading(false);
       }
     };

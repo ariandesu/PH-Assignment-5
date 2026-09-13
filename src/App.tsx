@@ -3,6 +3,9 @@ import { toast } from "react-toastify";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Technologies from "./components/Technologies";
+import ProjectCTA from "./components/ProjectCTA";
+import AboutContact from "./components/AboutContact";
+import Footer from "./components/Footer";
 import type { Technology } from "./types";
 
 export default function App() {
@@ -71,7 +74,13 @@ export default function App() {
           onRemove={removeFromStack}
           onRemoveAll={removeAll}
         />
+
+        <ProjectCTA />
+
+        <AboutContact />
       </main>
+
+      <Footer />
     </>
   );
 }
