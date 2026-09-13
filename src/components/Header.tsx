@@ -20,7 +20,11 @@ export default function Header() {
 
         <a href="#" className="logo" onClick={closeMenu}>
           <span className="logo-box">DS</span>
-          <span className="logo-text">Dev Stack</span>
+
+          <span className="logo-word">
+            <span className="logo-dev">Dev</span>
+            <span className="logo-stack">Stack</span>
+          </span>
         </a>
 
         <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
@@ -28,10 +32,7 @@ export default function Header() {
             Home
           </a>
 
-          <a
-            href="#technologies"
-            onClick={closeMenu}
-          >
+          <a href="#technologies" onClick={closeMenu}>
             Technologies
           </a>
 
@@ -49,13 +50,8 @@ export default function Header() {
         </nav>
 
         <div className="nav-actions">
-          <button className="sign-in">
-            Sign In
-          </button>
-
-          <button className="sign-up">
-            Sign Up
-          </button>
+          <button className="sign-in">Sign In</button>
+          <button className="sign-up">Sign Up</button>
         </div>
       </div>
     </header>
