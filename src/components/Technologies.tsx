@@ -1,8 +1,21 @@
 import { useEffect, useState } from "react";
 import type { Technology } from "../types";
 import TechnologyCard from "./TechnologyCard";
+import StackPanel from "./StackPanel";
 
-export default function Technologies() {
+type TechnologiesProps = {
+  stack: Technology[];
+  onAdd: (technology: Technology) => void;
+  onRemove: (id: string) => void;
+  onRemoveAll: () => void;
+};
+
+export default function Technologies({
+  stack,
+  onAdd,
+  onRemove,
+  onRemoveAll,
+}: TechnologiesProps) {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
 
   useEffect(() => {
@@ -38,13 +51,25 @@ export default function Technologies() {
           </p>
         </div>
 
-        <div className="technology-grid">
-          {technologies.map((technology) => (
-            <TechnologyCard
-              key={technology.id}
-              technology={technology}
-            />
-          ))}
+        <div className="technology-layout">
+          <div className="technology-grid">
+            {technologies.map((technology) => (
+              <TechnologyCard
+                key={technology.id}
+                technology={technology}
+                added={stack.some(
+                  (item) => item.id === technology.id
+                )}
+                onAdd={onAdd}
+              />
+            ))}
+          </div>
+
+          <StackPanel
+            stack={stack}
+            onRemove={onRemove}
+            onRemoveAll={onRemoveAll}
+          />
         </div>
       </div>
     </section>

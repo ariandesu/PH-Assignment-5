@@ -2,10 +2,14 @@ import type { Technology } from "../types";
 
 type TechnologyCardProps = {
   technology: Technology;
+  added: boolean;
+  onAdd: (technology: Technology) => void;
 };
 
 export default function TechnologyCard({
   technology,
+  added,
+  onAdd,
 }: TechnologyCardProps) {
   return (
     <article className="technology-card">
@@ -34,8 +38,12 @@ export default function TechnologyCard({
         <span>★ {technology.rating}</span>
       </div>
 
-      <button className="add-stack-button">
-        Add to Stack
+      <button
+        className={`add-stack-button ${added ? "added" : ""}`}
+        disabled={added}
+        onClick={() => onAdd(technology)}
+      >
+        {added ? "✓ Added to Stack" : "Add to Stack"}
       </button>
     </article>
   );
