@@ -6,6 +6,7 @@ export default function App() {
   return (
     <>
       <Header />
+
       <main>
         <Hero />
         <Technologies />
@@ -13,4 +14,3 @@ export default function App() {
     </>
   );
 }
-

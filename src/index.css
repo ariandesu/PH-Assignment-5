@@ -275,16 +275,144 @@ button {
   font-size: 13px;
   color: #94a3b8;
 }
+/* =========================
+   TECHNOLOGY GRID
+========================= */
 
-.technology-preview {
-  min-height: 120px;
-  border: 1px dashed #dbe3ec;
-  border-radius: 10px;
+.technology-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* =========================
+   TECHNOLOGY CARD
+========================= */
+
+.technology-card {
+  min-height: 320px;
+  padding: 22px;
+
+  background: #ffffff;
+  border: 1px solid #edf0f5;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.04);
+
+  display: flex;
+  flex-direction: column;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.technology-card:hover {
+  transform: translateY(-3px);
+  border-color: #e4d7e9;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.08);
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.technology-icon {
+  width: 48px;
+  height: 48px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  border: 1px solid #edf0f5;
+  border-radius: 10px;
+
+  background: #ffffff;
+}
+
+.technology-icon img {
+  width: 29px;
+  height: 29px;
+  object-fit: contain;
+}
+
+.technology-badge {
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: #fff1f7;
+  color: #df2477;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.technology-card h3 {
+  margin-bottom: 9px;
+
+  font-size: 20px;
+  line-height: 1.25;
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.technology-description {
+  flex: 1;
+
+  margin-bottom: 18px;
+
+  font-size: 12px;
+  line-height: 1.7;
   color: #64748b;
-  font-size: 14px;
+}
+
+.technology-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  flex-wrap: wrap;
+}
+
+.technology-meta span {
+  padding: 5px 8px;
+
+  border-radius: 5px;
+
+  background: #f8fafc;
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.technology-meta span:last-child {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.add-stack-button {
+  width: 100%;
+
+  padding: 11px 14px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #111827;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
 }

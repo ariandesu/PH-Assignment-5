@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Technology } from "../types";
+import TechnologyCard from "./TechnologyCard";
 
 export default function Technologies() {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
@@ -37,8 +38,13 @@ export default function Technologies() {
           </p>
         </div>
 
-        <div className="technology-preview">
-          {technologies.length} technologies loaded.
+        <div className="technology-grid">
+          {technologies.map((technology) => (
+            <TechnologyCard
+              key={technology.id}
+              technology={technology}
+            />
+          ))}
         </div>
       </div>
     </section>
