@@ -17,6 +17,7 @@ export default function Technologies({
   onRemoveAll,
 }: TechnologiesProps) {
   const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadTechnologies = async () => {
@@ -30,8 +31,13 @@ export default function Technologies({
         const data: Technology[] = await response.json();
 
         setTechnologies(data);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 400);
       } catch (error) {
         console.error("Error loading technologies:", error);
+        setLoading(false);
       }
     };
 
@@ -51,26 +57,33 @@ export default function Technologies({
           </p>
         </div>
 
-        <div className="technology-layout">
-          <div className="technology-grid">
-            {technologies.map((technology) => (
-              <TechnologyCard
-                key={technology.id}
-                technology={technology}
-                added={stack.some(
-                  (item) => item.id === technology.id
-                )}
-                onAdd={onAdd}
-              />
-            ))}
+        {loading ? (
+          <div className="loading-container">
+            <div className="loading-spinner"></div>
+            <p>Loading technologies...</p>
           </div>
+        ) : (
+          <div className="technology-layout">
+            <div className="technology-grid">
+              {technologies.map((technology) => (
+                <TechnologyCard
+                  key={technology.id}
+                  technology={technology}
+                  added={stack.some(
+                    (item) => item.id === technology.id
+                  )}
+                  onAdd={onAdd}
+                />
+              ))}
+            </div>
 
-          <StackPanel
-            stack={stack}
-            onRemove={onRemove}
-            onRemoveAll={onRemoveAll}
-          />
-        </div>
+            <StackPanel
+              stack={stack}
+              onRemove={onRemove}
+              onRemoveAll={onRemoveAll}
+            />
+          </div>
+        )}
       </div>
     </section>
   );
